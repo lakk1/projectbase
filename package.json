@@ -1,0 +1,11 @@
+{
+  "name": "base1",
+  "version": "1.0.0",
+  "description": "project basic setup",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "laxminarayana",
+  "license": "ISC"
+}
