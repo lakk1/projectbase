@@ -13,10 +13,18 @@ var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
 //middleware
 // setup the logger
 app.use(morgan("dev",{stream:accessLogStream}));
+app.use(express.static('public'))
+app.use(express.static('public/lib'))
 app.engine('ejs',ejsMate);
 app.set('view engine','ejs');
 
 
+app.get('/login',function (req,res) {
+    res.render('login')
+})
+app.get('/signup',function (req,res) {
+    res.render('signup')
+})
 app.get('/',function (req,res) {
     res.render('home')
 })

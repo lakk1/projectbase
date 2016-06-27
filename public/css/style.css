@@ -1,0 +1,52 @@
+body{
+    padding-top: 70px;
+
+}
+.main1{
+    padding-top: 10vh;
+    border: 2px solid deepskyblue;
+    height: 70vh;
+    padding: 6%;
+}
+/*.nav1{*/
+    /*color: yellow;*/
+    /*font-weight: 600;*/
+    /*background: #00bcd4;*/
+    /*padding-left: 10%;*/
+/*}*/
+/*.bg1{*/
+    /*background: #00bcd4;*/
+
+/*}*/
+
+/*.navbar-default .navbar-brand {*/
+    /*font-size: 25px;*/
+
+/*}*/
+/*.navbar-default .navbar-brand:hover {*/
+    /*font-size: 30px;*/
+
+/*}*/
+/*.navbar-default .navbar-nav>li>a,.navbar-default .navbar-brand {*/
+    /*color: #fff;*/
+
+/*}*/
+/*.navbar-default .navbar-brand:hover,.navbar-default .navbar-nav>li>a:hover {*/
+    /*font-size: 18px;*/
+    /*color: white;*/
+/*}*/
+/*.main{*/
+    /*color: white;*/
+    /*padding: 2%;*/
+    /*height: 80vh;*/
+/*}*/
+
+@media (max-width: 767px){
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: white;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{
+        color: #16a09b;
+    }
+}
+    
