@@ -1,2 +1,3 @@
 # projectbase
-    Basic project setup using nodejs,expressjs,mongodb and passport.
+    Project basic authentication setup using nodejs,expressjs,mongodb and passport.
+
