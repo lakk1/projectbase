@@ -1,8 +1,20 @@
 var router = require('express').Router();
 var User = require('../models/user.model');
+var passport = require('passport');
+var passportConf = require('../config/passportconfig')
+
+
+
 router.get('/login',function (req,res) {
-    res.render('login')
+    if(req.user) return res.redirect('/profile')
+    res.render('login',{message:req.flash('loginMessage')})
 })
+router.post('/login',passport.authenticate('local-login',{
+    successRedirect: '/profile',
+    failureRedirect: '/login',
+    failureFLash: true
+} ));
+
 router.get('/signup',function (req,res,next) {
     res.render('signup',{
         errors:req.flash('errors')
@@ -22,7 +34,10 @@ router.post('/signup',function (req,res,next) {
         }else{
             user.save(function (err) {
                 if(err) return next(err);
-                res.redirect('/profile')
+                req.login(user,function (err) {
+                    if(err) return next(err);
+                    res.redirect('/profile')
+                })
             })
         }
 
@@ -30,7 +45,15 @@ router.post('/signup',function (req,res,next) {
 
 
 })
-router.get('/profile',function (req,res) {
-    res.render("profile")
+router.get('/profile',function (req,res,next) {
+    User.findOne({ _id:req.user._id},function (err,user) {
+        if(err) return next(err)
+        res.render("profile",{user:user})
+    })
+
+})
+router.get('/logout',function (req,res) {
+    req.logout();
+    res.redirect('/');
 })
 module.exports = router;
